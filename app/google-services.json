@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "497846755588",
+    "project_id": "superstreamer-4300c",
+    "storage_bucket": "superstreamer-4300c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497846755588:android:9de056f758d0a7df0bf051",
+        "android_client_info": {
+          "package_name": "com.example.superstreamer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497846755588-ekqp507hvubfqk4q8aonlbpqffh1jfem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjl4xEPfc6Jz4tvM78ezEl-BqZMRvekd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497846755588-ekqp507hvubfqk4q8aonlbpqffh1jfem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
