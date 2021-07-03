@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/signin_layout"
         android:layout_alignParentTop="true"
-        android:src="@drawable/logo_superstreamer" />
+        android:src="@drawable/logo_title" />
 
     <LinearLayout
         android:id="@+id/signin_layout"
@@ -35,18 +35,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:hint="@string/password" />
 
         <Button
             android:id="@+id/btn_login_email"
-            android:theme="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/btn_signin_email"
-            android:layout_marginBottom="20dp"
             android:text="@string/signin_email"
             android:textColor="@color/colorWhite" />
 
