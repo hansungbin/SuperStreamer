@@ -9,36 +9,17 @@
     <RelativeLayout
         android:id="@+id/rela_logo"
         android:layout_width="match_parent"
-        android:layout_height="35dp">
+        android:layout_height="35dp" >
 
-        <ImageView
-            android:id="@+id/main_img_back"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="0dp"
-            android:visibility="invisible"
-            android:src="@drawable/ic_arrow_back" />
-
-        <TextView
-            android:id="@+id/tv_station"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="3dp"
-            android:layout_toRightOf="@+id/main_img_back"
-            android:gravity="center"
-            android:text="목록으로"
-            android:visibility="invisible"
-            android:textColor="@color/colorNavIcon"
-            android:textSize="16dp" />
 
         <ImageView
             android:id="@+id/logo_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/logo_title" />
+            android:src="@drawable/logo_title"
+            />
 
-    </RelativeLayout>
+    </RelativeLayout>>
 
     <LinearLayout
         android:id="@+id/toolbar_division"
@@ -50,8 +31,24 @@
 
     <FrameLayout
         android:id="@+id/main_content"
+        android:layout_above="@+id/nav_division"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/rela_logo" />
 
+    <LinearLayout
+        android:id="@+id/nav_division"
+        android:background="@color/colorDivision"
+        android:orientation="horizontal"
+        android:layout_above="@+id/bottom_navi"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" ></LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navi"
+        android:background="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_main"/>
 </RelativeLayout>

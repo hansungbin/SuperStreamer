@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/it_station"
+        android:icon="@drawable/ic_broadcasting"
+        android:enabled="true"
+        android:title="@string/station" />
+
+    <item
+        android:id="@+id/it_alarm"
+        android:icon="@drawable/ic_favorite_border"
+        android:enabled="true"
+        android:title="@string/alarm" />
+
+    <item
+        android:id="@+id/it_idea"
+        android:icon="@drawable/ic_idea"
+        android:enabled="true"
+        android:title="@string/idea" />
+
+    <item
+        android:id="@+id/it_account"
+        android:icon="@drawable/ic_account"
+        android:enabled="true"
+        android:title="@string/account" />
+
+    <item
+        android:id="@+id/it_register"
+        android:icon="@drawable/ic_register"
+        android:enabled="true"
+        android:visible="true"
+        android:title="@string/register" />
+</menu>

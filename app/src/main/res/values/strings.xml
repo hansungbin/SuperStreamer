@@ -17,11 +17,11 @@
     <string name="signout_fail_null">Please enter your email and password</string>
 
     <!-- Bottom Navigation View -->
-    <string name="home">home</string>
-    <string name="search">Search</string>
-    <string name="gallery">Gallery</string>
-    <string name="favorite">Favorite</string>
-    <string name="account">Account</string>
+    <string name="station">방송국</string>
+    <string name="idea">의견</string>
+    <string name="alarm">알림</string>
+    <string name="account">내 계정</string>
+    <string name="register">등록</string>
 
     <!-- Account -->
     <string name="post">Post</string>
