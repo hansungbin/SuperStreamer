@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.superstreamer.R
 
 class AlarmFragment : Fragment() {
-    var TAG : String? = "로그 DetailViewFragment - "
+    var TAG : String? = "로그 AlarmFragment - "
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -22,27 +22,27 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         when (item.itemId) {
             R.id.it_station -> {
                 var stationFragment = StationFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, stationFragment).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.Frame_layout_main_content, stationFragment).commit()
                 return true
             }
             R.id.it_alarm -> {
                 var alarmFragment = AlarmFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, alarmFragment).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.Frame_layout_main_content, alarmFragment).commit()
                 return true
             }
             R.id.it_idea -> {
                 var ideaFragment = IdeaFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, ideaFragment).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.Frame_layout_main_content, ideaFragment).commit()
                 return true
             }
             R.id.it_account -> {
                 var accountFragment = AccountFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, accountFragment).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.Frame_layout_main_content, accountFragment).commit()
                 return true
             }
             R.id.it_register -> {
                 var registerFragment = RegisterFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, registerFragment).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.Frame_layout_main_content, registerFragment).commit()
                 return true
             }
         }
@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         bottom_navi.setOnNavigationItemSelectedListener(this)
 
     }
+
 
 
 }

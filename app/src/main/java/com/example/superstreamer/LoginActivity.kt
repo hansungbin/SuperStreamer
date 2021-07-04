@@ -76,11 +76,13 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
+//    메인 페이지로 이동
     fun moveMainPage(user: FirebaseUser?) {
         if (user != null) {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
