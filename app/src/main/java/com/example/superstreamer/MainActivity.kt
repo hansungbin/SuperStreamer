@@ -15,8 +15,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    var fragmentView: View? = null
     var TAG: String? = "로그 MainActivity - "
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //시작시 바텀네비게이션을 로드하고 바로 station 호출
+        bottom_navi.setOnNavigationItemSelectedListener(this)
+        bottom_navi.selectedItemId = R.id.it_station
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -48,15 +56,5 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
         return false
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        bottom_navi.setOnNavigationItemSelectedListener(this)
-
-    }
-
-
 
 }
