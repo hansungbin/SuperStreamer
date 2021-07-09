@@ -114,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
 
     //자동로그인기능
     override fun onStart() {
-        Log.d(TAG, "onStart()")
+        Log.d(TAG,"LoginActivity.kt - onStart() called 01" )
         super.onStart()
         moveMainPage(auth?.currentUser)
     }
