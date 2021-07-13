@@ -1,64 +1,77 @@
 package com.example.superstreamer.navigation
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.retro_api_test.RetrofitNetwork
 import com.example.superstreamer.R
-import com.example.superstreamer.retrofit.RetrofitManager
-import com.example.superstreamer.util.RESPONSE_STATE
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.superstreamer.databinding.FragmentStationBinding
+import com.example.superstreamer.navigation.menu.StationDTO
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-class StationFragment : Fragment() {
+class StationFragment : Fragment(R.layout.fragment_detail) {
     var TAG : String? = "로그 StationFragment - "
-    var firestore : FirebaseFirestore? = null
+
+    private lateinit var binding : FragmentStationBinding
+
+    private var i_response : Int? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = LayoutInflater.from(activity).inflate(R.layout.fragment_station,container, false)
-        firestore = FirebaseFirestore.getInstance()
+        super.onCreate(savedInstanceState)
+//        var view = LayoutInflater.from(activity).inflate(R.layout.fragment_detail,container, false)
+        binding = FragmentStationBinding.inflate(layoutInflater)
+//        setContentView(view)
+        val view = binding.root
+        return view
 
-        RetrofitManager.instance.searchStation(searchTerm = "",completion = {
-            responseState,responseResult ->
+        // 조회할 기본 DB
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://happynewmind1.cafe24.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
-            when(responseState) {
-                RESPONSE_STATE.OKAY -> {
-                    Log.d(TAG,"StationFragment.kt - onCreateView() called RESPONSE_STATE.OKAY " )
-                    Toast.makeText(this.context,"api 호출 성공입니다.",Toast.LENGTH_SHORT).show()
+
+        val service = retrofit.create(RetrofitNetwork::class.java); service.listUser()
+            .enqueue(object : Callback<StationDTO> {
+                override fun onFailure(call: Call<StationDTO>?, t: Throwable?) {}
+
+                override fun onResponse(call: Call<StationDTO>, response: Response<StationDTO>) {
+    /*                    binding.etStation.text = response.body().toString()
+    //                    Log.d(TAG,"MainActivity.kt - onResponse() called //  response.toString() = ${response.toString()}")
+    //                    Log.d(TAG,"MainActivity.kt - onResponse() called //  response.body().toString() = ${response.body().toString()}")
+    //                    Log.d(TAG,"MainActivity.kt - onResponse() called //  response.body().toString() = ${response.body()!!.data.get(1).streamerName}")
+    //                    Log.d(TAG,"MainActivity.kt - onResponse() called //  response.body().toString() = ${response.body()!!.data.size}")
+    */
+    //                    var i: Int = response.body()!!.data.size
+                    i_response = response.body()!!.data.size
+    //                    while (i > 0) {
+    //                        i--
+    //                        binding.etStation.text = response.body()!!.data.get(i).streamerName
+    //                        Log.d(ContentValues.TAG,"MainActivity.kt - onResponse() called //  i = $i and response.body()!!.data.get(i).streamerName= ${response.body()!!.data.get(i).streamerName}"
+    //                        )
+    //                    }
+
                 }
-                RESPONSE_STATE.FAIL ->{
-//                    Toast.makeText(this, "api 호출 에러입니다." , Toast.LENGTH_SHORT).show()
-                    Toast.makeText(this.context,"api 호출 실패입니다.",Toast.LENGTH_SHORT).show()
-                    Log.d(TAG,"StationFragment.kt - onCreateView() called RESPONSE_STATE.FAIL" )
-                }
-            }
-        })
+
+            })
+
 
         return view
     }
 
-    inner class StationViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-        override fun getItemCount(): Int {
-            TODO("Not yet implemented")
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            TODO("Not yet implemented")
-        }
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            TODO("Not yet implemented")
-        }
-
-
-
-    }
 }

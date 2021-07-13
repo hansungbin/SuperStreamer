@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.superstreamer.R.layout.activity_login
+import com.example.superstreamer.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -14,17 +14,20 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     var TAG : String? = "로그 LoginActivity - "
     var auth: FirebaseAuth? = null
     var googleSignInClient: GoogleSignInClient? = null
     var GOOGLE_LOGIN_CODE = 9001
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activity_login)
+
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         auth = FirebaseAuth.getInstance()
         var GOOGLE_LOGIN_CODE = 9001
 
@@ -33,11 +36,11 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
-        btn_login_email.setOnClickListener {
+        binding.btnLoginEmail.setOnClickListener {
             signinAndSignup()
         }
 
-        btn_login_google.setOnClickListener {
+        binding.btnLoginGoogle.setOnClickListener {
             googleLogin()
         }
 
@@ -50,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinAndSignup() {
-        auth?.createUserWithEmailAndPassword(et_email.text.toString(), et_password.text.toString())
+        auth?.createUserWithEmailAndPassword(binding.etEmail.text.toString(), binding.etPassword.text.toString())
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //Creating a user account
@@ -63,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signinEmail() {
-        auth?.signInWithEmailAndPassword(et_email.text.toString(), et_password.text.toString())
+        auth?.signInWithEmailAndPassword(binding.etEmail.text.toString(), binding.etPassword.text.toString())
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //Login
